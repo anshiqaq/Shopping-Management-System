@@ -1,0 +1,21 @@
+<p>update-category works!</p>
+<h1 style="margin: 10px;">Update Category</h1>
+
+<form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="form-group" hidden> 
+        <label for="id" class="form-label">Id</label>
+        <input type="number" id="id" class="form-control" formControlName="id">
+    </div>
+    <div style="width: 500px; margin-left: 10px;">
+        <label for="name" class="form-label ">Name</label>
+        <input type="text" id="name" class="form-control" formControlName="name">
+        <div *ngIf="form.hasError('required', 'name') && (form.controls['name'].touched|| 
+        form.controls['name'].dirty)" class="alert alert-danger" role="alert">
+        Name is required
+    </div>
+    </div>
+    <div style="margin: 10px;">
+        <input type="submit" value="Update Category" class="btn btn-primary " >
+    </div>
+
+</form>

@@ -1,0 +1,61 @@
+<div class="container w-50 p-5 ">
+    <h1>Registration</h1>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        <div class="form-group" hidden>
+            <label for="id" class="form-label">Id</label>
+            <input type="number" id="id" class="form-control " formControlName="id">
+        </div>
+
+        <div>
+            <label for="name" class="form-label">Name</label>
+            <input type="text" id="name" class="form-control" formControlName="name">
+            <div *ngIf="form.hasError('required', 'name') && (form.controls['name'].touched|| 
+        form.controls['name'].dirty)" class="alert alert-danger" role="alert">
+                Name is required
+            </div>
+        </div>
+
+        <div>
+            <label for="email" class="form-label">Email</label>
+            <input type="text" id="email" class="form-control" formControlName="email">
+            <div *ngIf="form.hasError('required', 'email') && (form.controls['email'].touched|| 
+        form.controls['email'].dirty)" class="alert alert-danger" role="alert">
+                Email is required
+            </div>
+            <div *ngIf="form.hasError('email', 'email') && (form.controls['email'].touched|| 
+            form.controls['email'].dirty)" class="alert alert-danger" role="alert">
+                Email is required
+            </div>
+        </div>
+
+        <div>
+            <label for="password" class="form-label">Password</label>
+            <input type="password" id="password" class="form-control" formControlName="password">
+            <div *ngIf="form.hasError('required', 'password') && (form.controls['password'].touched|| 
+        form.controls['password'].dirty)" class="alert alert-danger" role="alert">
+                Password is required
+            </div>
+        </div>
+
+        <div>
+            <label for="dateOfBirth " class="form-label">DateOfBirth</label>
+            <input type="date" id="dateOfBirth " class="form-control" formControlName="dateOfBirth">
+            <div *ngIf="form.hasError('required', 'dateOfBirth ') && (form.controls['dateOfBirth '].touched|| 
+        form.controls['dateOfBirth '].dirty)" class="alert alert-danger" role="alert">
+                DateOfBirth is required
+            </div>
+        </div>
+
+        <div class="form-group" hidden>
+            <label for="role " class="form-label">Role</label>
+            <input type="number" id="role " class="form-control" formControlName="role">
+        </div><br>
+
+        <div class="form-group">
+            <input type="submit" value="Register" class="btn btn-primary"> |           
+                <a routerLink="/login" class="accordion-flush " aria-current="page">Login</a>
+           
+        </div>
+
+    </form>
+</div>
